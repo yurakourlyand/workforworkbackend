@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * @author Yura Kourlyand
  */
-public class PasswordValidatationRule implements RegistrationRule {
+public class PasswordValidationRule implements RegistrationRule {
     @Override
     public void validate(RegistrationData regData) throws Exception {
         String pattern = "^(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{8,16}$";

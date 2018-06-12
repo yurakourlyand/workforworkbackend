@@ -16,8 +16,6 @@ public class Conversation {
     @Id
     @GeneratedValue
     public Long id;
-
-
     public long userAId;
     public long userBId;
 
@@ -54,7 +52,8 @@ public class Conversation {
     public Long getId() {
         return id;
     }
-public void setId(Long id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
 

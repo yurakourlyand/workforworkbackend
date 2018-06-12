@@ -31,7 +31,6 @@ public class User {
     @Column(unique = true)
     public String userName;
 
-
     private String password;
 
     @Column(unique = true)

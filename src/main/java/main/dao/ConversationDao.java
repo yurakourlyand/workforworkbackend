@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Repository
 public interface ConversationDao extends CrudRepository<Conversation, Long> {
-    List<Conversation> findConversationsByUserAId(long id);
-    List<Conversation> findConversationsByUserBId(long id);
+//    List<Conversation> findConversationsByUserAId(long id);
+//    List<Conversation> findConversationsByUserBId(long id);
     List<Conversation> findConversationsByUserAIdOrUserBId(long userAId, long userBId);
     Conversation findConversationByUserAIdAndUserBId(long userAId, long userBId);
 }

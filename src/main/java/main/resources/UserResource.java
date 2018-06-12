@@ -56,14 +56,10 @@ public class UserResource {
     PasswordEncoder passwordEncoder;
 
 
-
-
-
-
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public @ResponseBody
     ResponseEntity<User> get(@PathVariable Long id) {
-       User user =  userDao.findUserById(id);
+        User user = userDao.findUserById(id);
         user.conversations = null;
         return ResponseEntity.ok(user);
     }
@@ -109,10 +105,10 @@ public class UserResource {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Target user was not found");
         }
         Conversation conversation;
-        Conversation con0 = conDao.findConversationByUserAIdAndUserBId(user.id, receivingUser.id);
+        Conversation con1 = conDao.findConversationByUserAIdAndUserBId(user.id, receivingUser.id);
         Conversation con2 = conDao.findConversationByUserAIdAndUserBId(receivingUser.id, user.id);
-        if (con0 != null) conversation = con0;
-        else conversation = con2;
+        conversation = (con1 != null) ? con1 : con2;
+
         if (conversation == null) {
             conversation = conDao.save(new Conversation(user.id, receivingUser.id));
             user.conversations.add(conversation);
@@ -121,8 +117,8 @@ public class UserResource {
             userDao.save(receivingUser);
             String destination = "/topic/user/" + conversation.userAId;
             String destination2 = "/topic/user/" + conversation.userBId;
-            messagingTemplate.convertAndSend(destination,conversation);
-            messagingTemplate.convertAndSend(destination2,conversation);
+            messagingTemplate.convertAndSend(destination, conversation);
+            messagingTemplate.convertAndSend(destination2, conversation);
         }
         if (!StringUtils.isEmpty(message.message)) {
             Message message1 = new Message(message.message, conversation, user.id);
@@ -131,8 +127,8 @@ public class UserResource {
             conDao.save(conversation);
             String destination = "/topic/user/" + message1.conversation.userAId;
             String destination2 = "/topic/user/" + message1.conversation.userBId;
-            messagingTemplate.convertAndSend(destination,message1);
-            messagingTemplate.convertAndSend(destination2,message1);
+            messagingTemplate.convertAndSend(destination, message1);
+            messagingTemplate.convertAndSend(destination2, message1);
             return ResponseEntity.ok(message1);
         }
         return ResponseEntity.ok(conversation);

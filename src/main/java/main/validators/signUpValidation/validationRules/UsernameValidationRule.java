@@ -7,7 +7,7 @@ import main.validators.signUpValidation.RegistrationRule;
 /**
  * @author Yura Kourlyand
  */
-public class UserNameValidatationRule implements RegistrationRule {
+public class UsernameValidationRule implements RegistrationRule {
     @Override
     public void validate(RegistrationData regData) throws Exception {
         String pattern = "^(?=\\S+$)[a-zA-Z0-9]{4,12}$";

@@ -10,12 +10,12 @@ import org.apache.commons.validator.routines.EmailValidator;
 /**
  * @author Yura Kourlyand
  */
-public class EmailValidatationRule implements RegistrationRule {
+public class EmailValidationRule implements RegistrationRule {
     @Override
     public void validate(RegistrationData regData) throws Exception {
        boolean validMail = EmailValidator.getInstance().isValid(regData.getEmail());
         if(!validMail){
-            throw new Exception("Invalid email");//todo this password
+            throw new Exception("Invalid email");
         }
     }
 }

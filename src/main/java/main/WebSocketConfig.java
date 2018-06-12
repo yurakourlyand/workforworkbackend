@@ -29,13 +29,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         return new ErrorPageFilter();
     }
 
-    @Bean
-    public FilterRegistrationBean disableSpringBootErrorFilter(ErrorPageFilter filter) {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(filter);
-        filterRegistrationBean.setEnabled(false);
-        return filterRegistrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean disableSpringBootErrorFilter(ErrorPageFilter filter) {
+//        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+//        filterRegistrationBean.setFilter(filter);
+//        filterRegistrationBean.setEnabled(false);
+//        return filterRegistrationBean;
+//    }
 //    @Override
 //    public void configureMessageBroker(MessageBrokerRegistry config) {
 //        config.enableSimpleBroker("/topic");

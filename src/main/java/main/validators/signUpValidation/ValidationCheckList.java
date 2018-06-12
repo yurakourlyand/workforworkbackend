@@ -3,9 +3,9 @@ package main.validators.signUpValidation;
 
 
 import main.beans.User;
-import main.validators.signUpValidation.validationRules.EmailValidatationRule;
-import main.validators.signUpValidation.validationRules.PasswordValidatationRule;
-import main.validators.signUpValidation.validationRules.UserNameValidatationRule;
+import main.validators.signUpValidation.validationRules.EmailValidationRule;
+import main.validators.signUpValidation.validationRules.PasswordValidationRule;
+import main.validators.signUpValidation.validationRules.UsernameValidationRule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,9 +16,9 @@ import java.util.List;
 public class ValidationCheckList {
 	public static List<RegistrationRule> validationCheck() {
 		List<RegistrationRule> rules = new ArrayList<>();
-		rules.add(new UserNameValidatationRule());
-		rules.add(new PasswordValidatationRule());
-		rules.add(new EmailValidatationRule());
+		rules.add(new UsernameValidationRule());
+		rules.add(new PasswordValidationRule());
+		rules.add(new EmailValidationRule());
 		return rules;
 	}
 
